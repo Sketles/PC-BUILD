@@ -21,7 +21,7 @@ $(document).ready(function(){
     $("#enviar").click(function(){
         var mensaje = $("#mensaje").val();
 
-        if(mensaje.length <= 50){
+        if(mensaje.length <= 10){
             alert("Porfavor escriba un poco mas (10 caracteres)");
         }
 
