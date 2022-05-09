@@ -64,4 +64,10 @@
     padding-left: 150px;
 }
 
-
+.valordolar{
+    background-color: rgb(0, 80, 20);
+    padding-top: 15px;
+    padding-right: 150px;
+    padding-left: 150px;
+    font: 150% sans-serif;
+}
