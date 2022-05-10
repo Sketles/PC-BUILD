@@ -1,5 +1,5 @@
 
-$("#boton").click(function() {
+$("#document").click(function() {
     $("#quienes-somos").load('quienes-somos.html');
 });
 
