@@ -1,11 +1,12 @@
+
 $("#boton").click(function() {
-    $("#htmlext").load('quienes-somos.html');
+    $("#quienes-somos").load('quienes-somos.html');
 });
 
 $("#boton").click(function() {
-    $("#htmlext").load('terminos-y-condiciones.html');
+    $("#termino-y-condiciones").load('terminos-y-condiciones.html');
 });
 
 $("#boton").click(function() {
-    $("#htmlext").load('politica-de-reembolso.html');
+    $("#politica-de-reembolso").load('politica-de-reembolso.html');
 });
