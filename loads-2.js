@@ -5,3 +5,5 @@ $("#document").click(function() {
 $("#document").click(function() {
     $("#pagoaprobado").load('terminos-y-condiciones.html');
 });
+
+
