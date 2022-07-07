@@ -59,4 +59,6 @@ def terminoycondiciones(request):
     return render(request,'core/termino-y-condiciones.html')
 
 
+def formulario(request):
+    return render(request,'core/formulario.html')
 

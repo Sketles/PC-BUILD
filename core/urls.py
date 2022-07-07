@@ -1,5 +1,6 @@
+from unicodedata import name
 from django.urls import path
-from .views import fichacomponentes, index, prearmados, carrito, contacto, discoduro, discossd,fichacomponentes,fichapc,gabinetes,memoriasram,pagoaprobado,placasmadres,politicadereembolso,procesadores,quienessomos,software,tarjetasdevideo,terminoycondiciones
+from .views import fichacomponentes, index, prearmados, carrito, contacto, discoduro, discossd,fichacomponentes,fichapc,gabinetes,memoriasram,pagoaprobado,placasmadres,politicadereembolso,procesadores,quienessomos,software,tarjetasdevideo,terminoycondiciones,formulario
 
 
 
@@ -24,6 +25,7 @@ urlpatterns = [
     path('quienessomos',quienessomos,name="quienessomos"),
     path('software',software,name="software"),
     path('tarjetasdevideo',tarjetasdevideo,name="tarjetasdevideo"),
-    path('terminoycondiciones',terminoycondiciones,name="terminoycondiciones")
+    path('terminoycondiciones',terminoycondiciones,name="terminoycondiciones"),
+    path('formulario',formulario,name="formulario") 
 ]
 
