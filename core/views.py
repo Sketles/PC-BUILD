@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Despacho
 
 # Create your views here.
 
@@ -41,8 +42,6 @@ def placasmadres(request):
 def politicadereembolso(request):
     return render(request,'core/politica-de-reembolso.html')
 
-
-
 def procesadores(request):
     return render(request,'core/procesadores.html')
 
@@ -59,6 +58,16 @@ def terminoycondiciones(request):
     return render(request,'core/termino-y-condiciones.html')
 
 
-def formulario(request):
-    return render(request,'core/formulario.html')
 
+#-------------------------------------------------------#
+#--FORMULARIOS -----------------------------------------#
+def formulario(request):
+    despachos = Despacho.objects.all()
+    datos = {
+        'despachos': despachos
+    }
+    return render(request,'core/formulario.html',datos)
+#-------------------------------------------------------#
+#--FIN DEL FORMULARIO ----------------------------------#
+
+    

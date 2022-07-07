@@ -64,38 +64,47 @@
 
     <div class="row text-center text-center text-justify bg-dark text-white">
         <div class="col-sm">
-
             <div class="cuadrado">
-                <img src="{% static 'core/Imagenes/logos-img/logoprincipal.png' %}" width="230">
+                <img src="{% static 'core/Imagenes/despacho.png' %}" width="230">
             </div>
-
-            <div class="texto">
-                <p>Para averiguar donde viene tu pedido, ingresa el Nro° de despacho que enviamos a tu correo al momento de realizar la compra.
-                  para mayor informacion, problemas con tu despacho o error en al direccion de entrega, contactate con nosotros <a href="{% url 'contacto' %}">Aqui</a>
-                   o en el apartado contacto.
-                </p> 
-            </div>
-   
         </div>
-    </div>
+    </div><br>
 
 
     <div class="container">
       <div class="row">
         <div class="col">
+          <!-- ESPACIO -->
         </div>
         <div class="col-6 text-center">
 
 
-          
-          <form action="">
 
-          </form>
-
+          <table class="table table-striped table-dark">
+            <thead>
+              <tr>
+                <th scope="col">N° Orden</th>
+                <th scope="col">Destinatario</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Estado</th>
+              </tr>
+              {% for ve in despachos %}
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">{{ve.nroorden}}</th>
+                <td>{{ve.destinatario}}</td>
+                <td>{{ve.direccion}}</td>
+                <td>{{ve.estado}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
 
 
         </div>
         <div class="col">
+          <!-- ESPACIO -->
         </div>
       </div>
     </div>
