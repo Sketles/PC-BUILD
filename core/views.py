@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from core.forms import DespachoForm
 from .models import Despacho
@@ -84,18 +84,26 @@ def formulario(request):
 
 #-------------------------------------------------------#
 #--MODIFICAR ELEMENTOS -----------------------------------#
-def crud(request,id):
+def crud(request, id):
     despacho = Despacho.objects.get(nroorden=id)
     datos = {
         'form': DespachoForm(instance = despacho)
     }
+    if(request.method=='POST'):
+        formulario = DespachoForm(data=request.POST,instance=despacho)
+        if(formulario.is_valid):
+            formulario.save()
+            datos['mensaje'] = "Modificado Correctamente"
     return render(request,'core/crud.html',datos)
 #-------------------------------------------------------#
 #--FIN DEL MODIFICAR ELEMENTOS ---------------------------#
 
 
 
-
+def crudeliminar(request, id):
+    despacho = Despacho.objects.get(nroorden=id)
+    despacho.delete()
+    return redirect(to="formulario")
 
 
 
