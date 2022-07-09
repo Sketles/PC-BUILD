@@ -1,6 +1,6 @@
 from unicodedata import name
 from django.urls import path
-from .views import fichacomponentes, index, prearmados, carrito, contacto, discoduro, discossd,fichacomponentes,fichapc,gabinetes,memoriasram,pagoaprobado,placasmadres,politicadereembolso,procesadores,quienessomos,software,tarjetasdevideo,terminoycondiciones,formulario
+from .views import fichacomponentes, index, prearmados, carrito, contacto, discoduro, discossd,fichacomponentes,fichapc,gabinetes,memoriasram,pagoaprobado,placasmadres,politicadereembolso,procesadores,quienessomos,software,tarjetasdevideo,terminoycondiciones,formulario,crud
 
 
 
@@ -26,6 +26,7 @@ urlpatterns = [
     path('software',software,name="software"),
     path('tarjetasdevideo',tarjetasdevideo,name="tarjetasdevideo"),
     path('terminoycondiciones',terminoycondiciones,name="terminoycondiciones"),
-    path('formulario',formulario,name="formulario") 
+    path('formulario',formulario,name="formulario"), 
+    path('crud/<id>',crud,name="crud"), 
 ]
 

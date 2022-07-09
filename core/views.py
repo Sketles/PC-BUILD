@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+from core.forms import DespachoForm
 from .models import Despacho
 
 # Create your views here.
@@ -59,15 +61,83 @@ def terminoycondiciones(request):
 
 
 
+
 #-------------------------------------------------------#
-#--FORMULARIOS -----------------------------------------#
+#--MOSTRAR ELEMENTOS -----------------------------------#
 def formulario(request):
     despachos = Despacho.objects.all()
     datos = {
-        'despachos': despachos
+        'despachos': despachos,
+        'form': DespachoForm(),
     }
+    if(request.method=='POST'):
+        formulario = DespachoForm(request.POST)
+        if(formulario.is_valid):
+            formulario.save()
+            datos['mensaje'] = "Guardados Correctamente"
     return render(request,'core/formulario.html',datos)
 #-------------------------------------------------------#
-#--FIN DEL FORMULARIO ----------------------------------#
+#--FIN DEL MOSTRAR ELEMENTOS ---------------------------#
 
-    
+
+
+
+#-------------------------------------------------------#
+#--MODIFICAR ELEMENTOS -----------------------------------#
+def crud(request,id):
+    despacho = Despacho.objects.get(nroorden=id)
+    datos = {
+        'form': DespachoForm(instance = despacho)
+    }
+    return render(request,'core/crud.html',datos)
+#-------------------------------------------------------#
+#--FIN DEL MODIFICAR ELEMENTOS ---------------------------#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#-------------------------------------------------------#
+#--MOSTRAR ELEMENTOS -----------------------------------#
+#def formulario(request):
+#    despachos = Despacho.objects.all()
+#    datos = {
+#        'despachos': despachos,
+#    }
+#    return render(request,'core/formulario.html',datos)
+#-------------------------------------------------------#
+#--FIN DEL MOSTRAR ELEMENTOS ---------------------------#
+
+#----------------------------------------------------------------#
+#--AGREGAR ELEMENTOS --------------------------------------------#
+#def crud(request):
+#    datosformulario = {
+#        'form': DespachoForm()
+#    }
+#    if(request.method=='POST'):
+#        formulario = DespachoForm(request.POST)
+#        if(formulario.is_valid):
+#            formulario.save()
+#            datosformulario['mensaje'] = "Guardados Correctamente"
+#    return render(request,'core/crud.html', datosformulario)
+#----------------------------------------------------------------#
+#--FIN DEL AGREGAR ELEMENTOS ------------------------------------#
+
+
