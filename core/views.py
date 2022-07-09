@@ -100,8 +100,12 @@ def crud(request, id):
 
 
 
+
+#-------------------------------------------------------#
+#--MODIFICAR ELEMENTOS ---------------------------------#
 def crudeliminar(request, id):
     despacho = Despacho.objects.get(nroorden=id)
     despacho.delete()
     return redirect(to="formulario")
-
+#-------------------------------------------------------#
+#--MODIFICAR ELEMENTOS ---------------------------------#
